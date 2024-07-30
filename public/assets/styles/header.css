@@ -1,0 +1,123 @@
+/* Общие стили для страницы */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0; /* Убрано паддинг у body */
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+/* Хедер */
+.header {
+    width: 100vw; /* Полная ширина экрана */
+    height: 60px; /* Высота хедера */
+    position: fixed; /* Фиксированное положение */
+    top: 0; /* Вверху страницы */
+    left: 0; /* В левой части страницы */
+    background-color: #fff; /* Белый фон для хедера */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Вертикальное направление для внутреннего контента */
+    z-index: 1000; /* Чтобы хедер находился поверх других элементов */
+}
+
+/* Градиентная линия в верхней части хедера */
+.gradient-line {
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(to right, #FF5800 0%, #8CA464 60%);
+}
+
+/* Стили для содержания хедера */
+.header-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: relative; /* Относительное позиционирование для абсолютного позиционирования вложенных элементов */
+    padding: 0 120px; /* Паддинги слева и справа для внутреннего контента */
+    box-sizing: border-box;
+}
+
+/* Логотип */
+.logo {
+    width: 150px; /* Ширина логотипа */
+    height: 50px; /* Высота логотипа */
+    object-fit: contain;
+    position: absolute; /* Абсолютное позиционирование */
+    left: 120px; /* Отступ слева от края хедера */
+}
+
+/* Контейнер для навигации */
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 35px; /* Расстояние между кнопками */
+    position: absolute; /* Абсолютное позиционирование */
+    right: 120px; /* Отступ справа от края хедера */
+}
+
+.login-container, .orders-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #313131;
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 450;
+}
+
+.login-container:hover, .orders-container:hover {
+    color: #FF5800;
+}
+
+.logout-icon, .orders-icon {
+    width: 24px; /* Ширина иконки */
+    height: 24px;
+    fill: currentColor; /* Иконка будет использовать цвет текущего элемента */
+    transition: fill 0.3s ease;
+}
+
+.bottom-line {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(49, 49, 49, 0.2);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* Отступ сверху для контента страницы */
+main {
+    padding-top: 10px; /* Высота хедера (60px) + дополнительный отступ (15px) */
+}
+
+/* Стили для блока slider */
+.slider {
+    background-color: rgba(217, 217, 217, 0.25); /* Полупрозрачный фон */
+    height: 250px; /* Высота блока */
+    width: 100%; /* Ширина блока на всю ширину экрана */
+    margin-top: 70px; /* Отступ сверху от хедера (высота хедера + дополнительный отступ) */
+    position: relative; /* Относительное позиционирование для размещения текста */
+    box-sizing: border-box; /* Учитываем отступы и границы в ширину элемента */
+}
+
+/* Стили для текста внутри блока slider */
+.slider-text {
+    font-size: 24px; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    color: #313131; /* Цвет текста */
+    position: absolute; /* Абсолютное позиционирование текста */
+    top: 50%; /* Вертикальное центрирование */
+    left: 50%; /* Горизонтальное центрирование */
+    transform: translate(-50%, -50%); /* Сдвиг текста в центр относительно его размера */
+}
+

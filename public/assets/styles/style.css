@@ -1,0 +1,745 @@
+/* Общие стили для страницы */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+/* Хедер */
+.header {
+    width: 100vw;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+/* Градиентная линия в верхней части хедера */
+.gradient-line {
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(to right, #FF5800 0%, #8CA464 60%);
+}
+
+/* Стили для содержания хедера */
+.header-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    padding: 0 120px;
+    box-sizing: border-box;
+}
+
+/* Логотип */
+.logo {
+    width: 150px;
+    height: 50px;
+    object-fit: contain;
+    position: absolute;
+    left: 120px;
+    cursor: pointer; /* Изменяет вид курсора на указатель при наведении */
+}
+
+
+/* Контейнер для навигации */
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    position: absolute;
+    right: 120px;
+}
+
+.login-container, .orders-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #313131;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-weight: 450;
+}
+
+.login-container:hover, .orders-container:hover {
+    color: #FF5800;
+}
+
+.logout-icon, .orders-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    transition: fill 0.3s ease;
+}
+
+.bottom-line {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(49, 49, 49, 0.2);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* Отступ сверху для контента страницы */
+main {
+    padding-top: 10px; /* Высота хедера + 10px */
+}
+
+/* Стили для блока slider */
+.slider {
+    background-color: rgba(217, 217, 217, 0.25);
+    height: 250px;
+    width: 100%;
+    margin-top: 70px; /* Отступ снизу от хедера */
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Стили для текста внутри блока slider */
+.slider-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #313131;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Общий стиль для форм */
+form {
+    background-color: rgba(217, 217, 217, 0.25);
+    padding: 25px;
+    border-radius: 9px;
+    max-width: 100%;
+    margin: 0;
+    color: #313131;
+}
+
+/* Стили для product-card */
+.product-card {
+    width: 263px;
+    height: 890px;
+    background-color: rgba(217, 217, 217, 0.25);
+    border-radius: 9px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 120px; /* Отступ от левого края экрана */
+}
+
+/* Контейнер для форм */
+.container {
+    position: relative; /* Изменено на relative для корректного позиционирования .result-container */
+    margin-left: 403px; /* Левый отступ (120px + 263px) */
+    margin-right: 107px; /* Правый отступ от края экрана */
+    box-sizing: border-box;
+}
+
+/* Стили для блока результата */
+.result-container {
+    box-sizing: border-box;
+    border-radius: 9px;
+    padding: 20px;
+    margin-left: 403px;
+    background-color: rgba(217, 217, 217, 0.25);
+    width: calc(100% - 403px - 107px); /* Ширина: 100% - ширина product-card (263px) и отступы (120px + 107px) */
+    margin-top: 10px; /* Отступ сверху от контейнера */
+}
+
+.result-container .tirage-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 21px;
+    color: #313131;
+    text-align: center; /* Центрирование текста */
+    margin: 0;
+}
+.result-container .print-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 21px;
+    color: #FF5800; /* Цвет текста */
+    margin: 10px 0 0; /* Отступ сверху и снизу */
+}
+.result-container .production-time-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(49, 49, 49, 0.65); /* Цвет текста */
+    margin: 10px 0 0; /* Отступ сверху и снизу */
+}
+.result-container .total-price-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 21px;
+    color: #313131; /* Цвет текста */
+    margin: 10px 0 0; /* Отступ сверху и снизу */
+}
+
+/* Общий стиль для форм */
+.form-group {
+    width: 145px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+/* Пример стилей для инпутов внутри .form-group */
+.form-group input[type="number"],
+.form-group select {
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 9px;
+    border: 1px solid rgba(49, 49, 49, 0.45);
+    box-sizing: border-box;
+    margin-top: 2px;
+    text-align: left;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* Стиль инпутов и селекторов при фокусе */
+input[type="number"]:focus,
+select:focus {
+    border: 1px solid #ff5800;
+    border-radius: 9px;
+    outline: none;
+}
+
+/* Стили для кнопки "Рассчитать стоимость" */
+.property-1-variant-3 {
+    background: #ff5800;
+    border-radius: 9px;
+    padding: 10px 25px; /* Паддинг по вертикали и горизонтали */
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0px 4px 15px 0px rgba(255, 88, 0, 0.45);
+    border-color: rgba(255, 88, 0, 0.95);
+    border-style: solid;
+    border-width: 2px;
+    color: #fff;
+    font-family: "Roboto-SemiBold", sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 15px; /* Отступ снизу */
+    height: 40px; /* Высота кнопки как у инпутов */
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+/* Изменение стиля кнопки при наведении */
+.property-1-variant-3:hover {
+    background: #ffffff;
+    border-color: rgba(255, 88, 0, 0.95);
+    border-style: solid;
+    border-width: 2px;
+    color: #313131;
+}
+
+/* Стили для кнопки "Оформить заказ" */
+.zakazbtn {
+    background: #7d9851;
+    border-radius: 9px;
+    padding: 10px 25px; /* Паддинг по вертикали и горизонтали */
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0px 4px 15px 0px #7d9851;
+    border-color: #7d9851;
+    border-style: solid;
+    border-width: 2px;
+    color: #fff;
+    font-family: "Roboto-SemiBold", sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    height: 40px; /* Высота кнопки как у инпутов */
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+/* Изменение стиля кнопки при наведении */
+.zakazbtn:hover {
+    background: #ffffff;
+    border-color: #7d9851;
+    border-style: solid;
+    border-width: 2px;
+    color: #313131;
+}
+
+/* Общий стиль для инпутов и селекторов */
+input[type="number"],
+select {
+    width: 250px;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 9px;
+    border: 1px solid rgba(49, 49, 49, 0.45);
+    box-sizing: border-box;
+    margin-top: 2px;
+    text-align: left;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* Убираем стрелочки в инпутах чисел */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Стиль контейнера для полей ввода и ошибок */
+.print-option {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Стиль контейнера для чекбоксов и инпутов */
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+    width: auto;
+}
+
+/* Стиль чекбоксов */
+.checkbox-wrapper input[type="checkbox"] {
+    width: 20px;
+    margin-right: 10px;
+}
+
+/* Ошибки под полями ввода */
+.error-text {
+    color: red;
+    font-size: 14px;
+    display: none;
+    margin-top: 5px;
+}
+
+/* Стиль для контейнера инпутов и селекторов */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin-left: 50px;
+}
+
+/* Стиль контейнера для чекбоксов и полей ввода */
+.print-option > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Стиль для текста с прозрачностью и размером шрифта */
+.format-text {
+    font-size: 14px;
+    color: rgba(49, 49, 49, 0.65);
+}
+
+/* Контейнеры для группировки радиокнопок */
+.tshirt-type-container, .color-container {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+}
+
+/* Стили для меток радиокнопок */
+.tshirt-type-label, .color-label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: #313131;
+}
+
+.tshirt-type-label input[type="radio"], .color-label input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Заголовки */
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; /* Bold */
+    font-size: 36px;
+    color: #313131;
+    margin: 5px;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500; /* Medium */
+    font-size: 21px;
+    color: #313131;
+}
+
+/* Стили для подсказки */
+.transfer-type-info {
+    position: relative;
+    cursor: pointer;
+    border-bottom: 1px dotted #000; /* Подчёркивание вопросительного знака */
+}
+
+/* Оверлей с подсказкой */
+.transfer-type-info::after {
+    content: attr(data-description);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 15px; /* Увеличенные отступы */
+    border-radius: 8px; /* Скругленные углы */
+    white-space: normal; /* Разрешает перенос текста на несколько строк */
+    font-size: 14px; /* Размер шрифта */
+    line-height: 1.5; /* Интервал между строками */
+    max-width: 600px; /* Ширина подсказки */
+    min-width: 350px; /* Минимальная ширина подсказки */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1000;
+    word-wrap: break-word; /* Перенос длинных слов */
+    text-align: left; /* Выравнивание текста по левому краю */
+}
+
+/* Показываем подсказку при наведении */
+.transfer-type-info:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Стиль попапа */
+.popup-login {
+    background: #ffffff;
+    border-radius: 9px;
+    height: auto; /* Изменяем высоту на auto, чтобы попап мог адаптироваться под содержимое */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    z-index: 1000;
+    display: block; /* Измените на block, чтобы показать попап */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Добавляем тень для лучшего визуального отделения */
+    padding: 20px; /* Добавляем отступы для содержимого */
+}
+
+/* Стили для контейнера и заголовка попапа */
+.popup-login .rectangle-6 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #ffffff; /* Убедитесь, что фон контейнера совпадает с фоном попапа */
+}
+
+.popup-login .div {
+    color: #313131;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 20px; /* Добавляем отступ снизу для заголовка */
+}
+
+.popup-login .login-form {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    background: #ffffff;
+}
+
+/* Стили для полей формы */
+.popup-login .frame-5, .popup-login .frame-8 {
+    margin-bottom: 15px;
+}
+
+.popup-login .frame-3 {
+    margin-bottom: 10px;
+}
+
+.popup-login .label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.popup-login input[type="login"], .popup-login input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 9px;
+    border: 1px solid rgba(49, 49, 49, 0.45);
+    box-sizing: border-box; /* Убедитесь, что отступы и границы включены в ширину */
+}
+
+
+.popup-login .slide-button {
+    background: #ff5800;
+    border-radius: 9px;
+    padding: 10px 25px; /* Паддинг по вертикали и горизонтали */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0px 4px 15px 0px rgba(255, 88, 0, 0.45);
+    border-color: rgba(255, 88, 0, 0.95);
+    border-style: solid;
+    border-width: 2px;
+    color: #fff;
+    font-family: "Roboto-SemiBold", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 0px; /* Отступ снизу */
+    height: 40px; /* Высота кнопки как у инпутов */
+    width: 100%; /* Ширина кнопки равна ширине родительского контейнера */
+    box-sizing: border-box; /* Учитываем паддинги и границы в ширину */
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+/* Изменение стиля кнопки при наведении */
+.popup-login .slide-button:hover {
+    background: #ffffff;
+    border-color: rgba(255, 88, 0, 0.95);
+    color: #313131;
+}
+
+/* Стиль для фонового затемнения */
+.overlay {
+    display: none; /* Скрыть по умолчанию */
+    position: fixed; /* Фиксированное позиционирование */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(49, 49, 49, 0.25); /* Темный фон с 25% прозрачностью */
+    backdrop-filter: blur(5px); /* Размытие фона */
+    z-index: 1000; /* Убедитесь, что затемнение над другими элементами */
+}
+
+/* Стиль для попапа */
+.popup-login {
+    display: none; /* Скрыть по умолчанию */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 1001; /* Попап должен быть над слоем затемнения */
+}
+
+#nav-buttons {
+    display: none; /* Скрываем блок по умолчанию */
+}
+
+/* Стили для блока с деталями заказа */
+/* Стили для контейнера заказа */
+.container-order {
+    width: 100%; /* Ширина контейнера на 100% от родителя */
+    max-width: 600px; /* Максимальная ширина контейнера такая же, как и у .order-summary */
+    margin: 0 auto; /* Центрируем контейнер по горизонтали */
+    padding: 0 25px; /* Отступы по бокам, чтобы совпадать с паддингом .order-summary */
+    box-sizing: border-box; /* Учитываем паддинги и границы в ширине контейнера */
+    padding: 0px;
+}
+
+
+
+/* Стили для блока с деталями заказа */
+.order-summary {
+    background-color: rgba(217, 217, 217, 0.25);
+    border-radius: 9px;
+    padding: 25px; /* Паддинг внутри блока */
+    max-width: 600px; /* Максимальная ширина блока */
+    width: 100%; /* Ширина блока на 100% от родителя */
+    box-sizing: border-box; /* Учитываем паддинги и границы в ширине блока */
+    color: #313131;
+    margin: 0 auto; /* Центрируем блок по горизонтали */
+}
+
+/* Контейнер для заголовков и параграфов */
+.order-detail {
+    margin-bottom: 20px; /* Отступ снизу между строками */
+    display: flex;
+    align-items: center; /* Выравнивание элементов по вертикали по центру */
+}
+
+.order-detail-side {
+    margin-bottom: 0; /* Отступ снизу между строками */
+    display: flex;
+    flex-direction: column; /* Выравнивание элементов по вертикали в колонке */
+}
+
+.order-detail h3, .order-detail-side h3 {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 700; /* Жирное начертание */
+    margin-right: 10px; /* Отступ между заголовком и текстом */
+}
+
+.order-detail p, .order-detail-side p {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+/* Заголовок сторон нанесения */
+.print-sides-header {
+    margin-bottom: 5px; /* Отступ снизу между заголовком и списком */
+}
+
+/* Стили для сторон нанесения */
+.print-sides {
+    /* Оставляем выравнивание по умолчанию (по левому краю) */
+}
+
+.print-sides p {
+    margin: 5px 0; /* Отступы сверху и снизу для абзацев */
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5; /* Высота строки для читаемости */
+    display: flex;
+    align-items: center; /* Выравнивание маркера и текста по вертикали */
+}
+
+/* Стили для маркера */
+.print-sides .marker {
+    color: #ff5800; /* Цвет маркера */
+    font-size: 18px; /* Размер маркера */
+    margin-right: 10px; /* Отступ между маркером и текстом */
+}
+
+/* Стили для формы оплаты */
+.payment-form {
+    background: none; /* Убираем цвет фона */
+    padding: 0; /* Убираем паддинги */
+    border: none; /* Убираем границы */
+    display: flex;
+    justify-content: center; /* Центрируем кнопку в форме */
+}
+
+/* Стили для кнопки "Оплатить" */
+.pay-button {
+    background: #ff5800;
+    border-radius: 9px;
+    padding: 10px 25px; /* Паддинг по вертикали и горизонтали */
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 15px 0px rgba(255, 88, 0, 0.45);
+    border-color: rgba(255, 88, 0, 0.95);
+    border-style: solid;
+    border-width: 2px;
+    color: #fff;
+    font-family: "Roboto-SemiBold", sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    cursor: pointer;
+    height: 40px; /* Высота кнопки */
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+    text-decoration: none; /* Убираем подчеркивание у кнопки */
+    text-align: center; /* Выравниваем текст по центру */
+}
+
+/* Изменение стиля кнопки при наведении */
+.pay-button:hover {
+    background: #ffffff;
+    border-color: rgba(255, 88, 0, 0.95);
+    border-style: solid;
+    border-width: 2px;
+    color: #313131;
+}
+
+.payment-status {
+    color: #8ca464; /* Цвет текста */
+    font-size: 16px; /* Размер шрифта */
+    font-weight: bold; /* Полужирный шрифт */
+    text-align: center; /* Выравнивание по центру */
+    margin: 0; /* Отступы сверху и снизу */
+}
+
+/* Стили для контейнера заказа */
+#order-summary {
+    position: relative;
+    overflow: hidden; /* Скрываем содержимое, выходящее за пределы блока */
+    transition: opacity 0.5s ease; /* Плавное исчезновение содержимого */
+    background-color: rgba(217, 217, 217, 0.25); /* Фон блока */
+    border-radius: 9px; /* Скругленные углы */
+    padding: 25px; /* Внутренний отступ */
+    max-width: 600px; /* Максимальная ширина блока */
+    width: 100%; /* Ширина блока на 100% от родителя */
+    min-height: 200px; /* Устанавливаем минимальную высоту блока */
+    color: #313131;
+    margin: 0 auto; /* Центрируем блок по горизонтали */
+    box-sizing: border-box; /* Включаем отступы и границы в расчет ширины и высоты блока */
+}
+
+/* Стили для скрытия содержимого блока */
+.hidden-content .order-summary-content {
+    visibility: hidden; /* Скрываем содержимое блока, но блок сам остается видимым */
+}
+
+/* Стили для контейнера логотипа */
+#logo-container {
+    position: absolute; /* Абсолютное позиционирование относительно родительского блока */
+    top: 50%; /* Позиционируем по центру по вертикали */
+    left: 50%; /* Позиционируем по центру по горизонтали */
+    transform: translate(-50%, -50%); /* Центрируем логотип */
+    z-index: 1000; /* Устанавливаем на передний план */
+    text-align: center;
+    display: none; /* Скрываем по умолчанию, покажем через JavaScript */
+}
+
+/* Стили для логотипа */
+#logo {
+    width: 50px; /* Размер логотипа */
+    height: auto;
+    animation: spin 2s linear infinite, bounce 1s ease-in-out infinite; /* Анимация вращения и прыжка */
+}
+/* Анимация прыжка логотипа */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+

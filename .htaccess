@@ -1,0 +1,42 @@
+<IfModule dir_module>
+    DirectoryIndex index.php index.html
+</IfModule>
+
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html
+
+<FilesMatch "\.(html)$">
+    Header set Cache-Control "no-cache, no-store"
+    Header unset ETag
+</FilesMatch>
+
+Header set X-Content-Type-Options nosniff
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Protect hidden files from being viewed
+    <Files .*>
+        Order Deny,Allow
+        Deny From All
+    </Files>
+
+    # Protect application and system files from being viewed
+    RewriteRule ^(?:application|modules|system)\b.* - [F,L]
+
+    # Allow any files or directories that exist to be displayed directly
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Rewrite all other URLs to index.php/URL
+    RewriteRule .* index.php/$0 [PT,L]
+
+    # Set Content-Type for JSON responses
+    RewriteCond %{REQUEST_URI} ^/api/ [OR]
+    RewriteCond %{REQUEST_URI} ^/json/
+    RewriteRule .* - [E=CONTENT_TYPE:application/json]
+</IfModule>
+
+# Apply Content-Type header if environment variable CONTENT_TYPE is set
+Header set Content-Type "application/json" env=CONTENT_TYPE

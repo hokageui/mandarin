@@ -1,17 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Функция для показа попапа и слоя затемнения
     function showLoginPopup() {
         document.getElementById('popup-login').style.display = 'block';
         document.getElementById('overlay').style.display = 'block';
     }
 
-    // Функция для скрытия попапа и слоя затемнения
+    // Функция для скрытия попапа
     function hideLoginPopup() {
         document.getElementById('popup-login').style.display = 'none';
         document.getElementById('overlay').style.display = 'none';
     }
-
-    // Функция для показа блока навигации
     function showNavButtons() {
         var navButtons = document.getElementById('nav-buttons');
         if (navButtons) {
@@ -62,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.send(JSON.stringify({})); // Отправляем пустой JSON объект
     }
 
-    // Выполняем проверку авторизации при загрузке страницы
+
     checkAuthStatus();
 
     // Отправка формы логина
@@ -138,21 +135,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Обработка кликов по кнопкам с jQuery
+
     $(document).ready(function() {
-        // Обработка клика по логотипу
+
         $('#logobtn').on('click', function() {
             window.location.href = '/'; // Перенаправление на главную страницу сайта
         });
 
-        // Обработка клика по кнопке "Мои заказы"
         $('#orderbtn').on('click', function() {
-            window.location.href = '/orderlist'; // Перенаправление на страницу заказов
+            window.location.href = '/orderlist';
         });
 
         // Обработка формы оплаты
         $('#payment-form').submit(function(e) {
-            e.preventDefault(); // Отменяем стандартное действие формы
+            e.preventDefault();
 
             var $orderSummary = $('#order-summary');
             var $logoContainer = $('#logo-container');
@@ -176,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     dataType: 'json',
                     data: JSON.stringify({ order_id: orderId }),
                     success: function(response) {
-                        console.log('Response:', response); // Добавляем отладочный вывод
+                        console.log('Response:', response); // отладочный вывод
 
                         // Обновляем #order-summary после завершения анимации
                         setTimeout(function() {
@@ -187,10 +183,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                 }
                                 $orderSummary.find('.order-summary-content').fadeIn(500); // Показываем содержимое снова
                             });
-                        }, 5000); // Задержка перед показом содержимого снова
+                        }, 5000);
                     },
                     error: function(xhr, status, error) {
-                        console.error('Error:', status, error); // Добавляем отладочный вывод
+                        console.error('Error:', status, error); // отладочный вывод
                         alert('Ошибка при обработке оплаты. Попробуйте снова.');
                     }
                 });
